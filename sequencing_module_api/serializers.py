@@ -8,3 +8,7 @@ class UserSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 
+class OrdinateurSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Ordinateur
+        fields = "__all__"
