@@ -25,7 +25,9 @@ SECRET_KEY = 'django-insecure-3ob+&(xv&z&$7p%i933sk-s!dh3p!jy--!hwpib^zy)p(g(=+4
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "*",
+]
 
 
 # Application definition
@@ -87,6 +89,20 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+# DATABASES = {  
+#     'default': {  
+#         'ENGINE': 'django.db.backends.mysql',  
+#         'NAME': 'sequencingmodule',  
+#         'USER': 'root',  
+#         'PASSWORD': 'root',  
+#         'HOST': '127.0.0.1',  
+#         'PORT': '3306',  
+#         'OPTIONS': {  
+#             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"  
+#         }  
+#     }  
+# }
 
 
 # Password validation
