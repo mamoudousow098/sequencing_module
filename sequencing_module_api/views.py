@@ -22,3 +22,40 @@ class OrdinateurList(generics.ListCreateAPIView):
 class OrdinateurDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Ordinateur.objects.all()
     serializer_class = OrdinateurSerializer
+
+class FichierList(generics.ListCreateAPIView):
+    queryset = Fichier.objects.all()
+    serializer_class = FichierSerializer
+
+
+class FichierDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Fichier.objects.all()
+    serializer_class = FichierSerializer
+
+
+class RunList(generics.ListCreateAPIView) :
+    queryset = Run.objects.all()
+    serializer_class = RunSerializer
+
+class RunDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Fichier.objects.all()
+    serializer_class = RunSerializer
+
+
+class EchantillonList(generics.ListCreateAPIView) :
+    queryset = Echantillon.objects.all()
+    serializer_class = EchantillonSerializer
+
+class EchantillonDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Fichier.objects.all()
+    serializer_class = EchantillonSerializer
+
+class DossierZipList(generics.ListCreateAPIView) :
+    queryset = DossierZip.objects.all()
+    serializer_class = DossierZipSerializer
+
+class DossierZipDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = DossierZip.objects.all()
+    serializer_class = DossierZipSerializer
+
+

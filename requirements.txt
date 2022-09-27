@@ -7,3 +7,4 @@ drf-yasg
 django-heroku
 PyJWT
 mysqlclient
+gunicorn

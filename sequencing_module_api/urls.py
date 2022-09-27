@@ -10,4 +10,18 @@ urlpatterns  = [
 
     path("ordinateur", views.OrdinateurList.as_view()),
     path("ordinateur/<str:pk>", views.OrdinateurDetail.as_view()),
+    
+    path("run", views.RunList.as_view()),
+    path("run/<int:pk>", views.RunDetail.as_view()),
+    
+    path("fichier", views.FichierList.as_view()),
+    path("fichier/<int:pk>", views.FichierDetail.as_view()),
+
+    path("echantillon", views.EchantillonList.as_view()),
+    path("echantillon/<int:pk>", views.EchantillonDetail.as_view()),
+
+    path("dossierzip", views.DossierZipList.as_view()),
+    path("dossierzip/<int:pk>", views.DossierZipDetail.as_view()),
+
+
 ]
