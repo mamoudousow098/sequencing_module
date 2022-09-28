@@ -8,3 +8,4 @@ django-heroku
 PyJWT
 mysqlclient
 gunicorn
+django-environ

@@ -11,9 +11,20 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
+import environ
+import os
+
+
+env = environ.Env(
+    # set casting, default value
+    DEBUG=(bool, False)
+)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+# Take environment variables from .env file
+env.read_env(os.path.join(BASE_DIR, '.env'))
 
 
 # Quick-start development settings - unsuitable for production
@@ -92,12 +103,12 @@ WSGI_APPLICATION = 'sequencing_module.wsgi.application'
 
 DATABASES = {  
     'default': {  
-        'ENGINE': 'django.db.backends.mysql',  
-        'NAME': 'sequencingmodules',  
-        'USER': 'root',  
-        'PASSWORD': 'root',  
-        'HOST': '127.0.0.1',  
-        'PORT': '3306',  
+        'ENGINE': env('ENGINE'),  
+        'NAME': env('NAME'),  
+        'USER': env('USER'),  
+        'PASSWORD': env('PASSWORD'),  
+        'HOST': env('HOST'),  
+        'PORT': env('PORT'),  
         'OPTIONS': {  
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"  
         }  
