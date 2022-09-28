@@ -8,6 +8,8 @@ urlpatterns  = [
     path("user", views.UserList.as_view()),
     path("user/<int:pk>", views.UserDetail.as_view()),
 
+    path("token", views.JSONWebTokenAuth().as_view()),
+
     path("ordinateur", views.OrdinateurList.as_view()),
     path("ordinateur/<str:pk>", views.OrdinateurDetail.as_view()),
     

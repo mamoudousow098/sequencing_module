@@ -83,26 +83,26 @@ WSGI_APPLICATION = 'sequencing_module.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
-
-# DATABASES = {  
-#     'default': {  
-#         'ENGINE': 'django.db.backends.mysql',  
-#         'NAME': 'sequencingmodule',  
-#         'USER': 'root',  
-#         'PASSWORD': 'root',  
-#         'HOST': '127.0.0.1',  
-#         'PORT': '3306',  
-#         'OPTIONS': {  
-#             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"  
-#         }  
-#     }  
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
 # }
+
+DATABASES = {  
+    'default': {  
+        'ENGINE': 'django.db.backends.mysql',  
+        'NAME': 'sequencingmodules',  
+        'USER': 'root',  
+        'PASSWORD': 'root',  
+        'HOST': '127.0.0.1',  
+        'PORT': '3306',  
+        'OPTIONS': {  
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"  
+        }  
+    }  
+}
 
 
 # Password validation
@@ -136,6 +136,8 @@ USE_I18N = True
 USE_TZ = True
 
 
+
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
@@ -145,3 +147,18 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+AUTH_USER_MODEL = "sequencing_module_api.User"
+
+REST_FRAMEWORK = {
+    # ...
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'sequencing_module_api.authentication.JSONWebTokenAuthentication',
+    ),
+    # ...
+}
+
+SWAGGER_SETTINGS = {
+   'DEFAULT_INFO': 'django.conf.urls.api_info',
+}
+

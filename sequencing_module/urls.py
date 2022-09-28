@@ -22,15 +22,18 @@ from drf_yasg import openapi
 from rest_framework import permissions
 
 
-schema_view = get_schema_view(
-   openapi.Info(
+api_info = openapi.Info(
       title="Sequencing Module API",
       default_version='v1',
       description="Test description",
       terms_of_service="https://www.google.com/policies/terms/",
       contact=openapi.Contact(email="mamoudoumamadoudsow@gmail.com"),
       license=openapi.License(name="Test License"),
-   ),
+   )
+
+schema_view = get_schema_view(
+    api_info
+   ,
    public=True,
    permission_classes=(permissions.AllowAny,),
 )
