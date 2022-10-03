@@ -1,7 +1,5 @@
 Django
 djangorestframework
-dnspython
-djangorestframework-simplejwt
 django-cors-headers
 drf-yasg
 django-heroku
