@@ -1,2 +1,2 @@
-sequencing_module_api/migrations/
+sequencing_module_api/migrations/*
 .env
