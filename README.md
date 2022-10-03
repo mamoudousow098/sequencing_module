@@ -83,8 +83,9 @@ $ path-to-the-virtual-env-directory\Scripts\activate.bat
 Otherwise, if your plaftorm is UNix system, you can activate your virtual envrionment by these commands:
 $source path-to-the-virtual-env-directory/bin/activate
 
-after creating and activating your virtual environment, you can start the project by executing the steps in the [introduction](#1-a-little-intro-about-the-installation)
+after creating and activating your virtual environment, you can start the project by executing the steps in the introduction of the installation
 ``` 
+
 
 
 ## FAQs
