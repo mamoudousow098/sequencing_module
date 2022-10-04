@@ -2,8 +2,6 @@ Django
 djangorestframework
 django-cors-headers
 drf-yasg
-django-heroku
 PyJWT
 mysqlclient
-gunicorn
 django-environ
