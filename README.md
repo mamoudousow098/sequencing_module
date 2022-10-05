@@ -13,7 +13,6 @@
     - [2.Side information:](#2side-information)
   - [FAQs](#faqs)
     - [1. **general documentation**](#1-general-documentation)
-      - [list of faqs you might need to consult](#list-of-faqs-you-might-need-to-consult)
     - [2. Contact the developers](#2-contact-the-developers)
 
 
@@ -97,12 +96,13 @@ you can debug or mastering any project with the offical website of the django an
 * [Django](https://www.djangoproject.com)
 * [django rest framework](https://www.django-rest-framework.org/)
   
-#### list of faqs you might need to consult
+list of faqs you might need to consult
 * [installing mysql python](https://stackoverflow.com/questions/5178292/pip-install-mysql-python-fails-with-environmenterror-mysql-config-not-found)
 * [configuring mysql for remote access if needed](https://www.hostinger.com/tutorials/mysql/how-create-mysql-user-and-grant-permissions-command-line)
 * [mysql debug](https://stackoverflow.com/questions/1885101/delete-data-from-all-tables-in-mysql)
 * [deploy app with django](https://vahiwe.medium.com/deploy-django-and-flask-applications-in-the-cloud-using-nginx-gunicorn-and-systemd-centos-7-4b6aef3a8578)
 * [deploy django application](https://dev.to/sayam753/deploy-django-4k0d)
+
 ### 2. Contact the developers
 For further information you can directly contact the two developers of the project
 * [Mamoudou Mamadou Sow](<MAILTO:smamadoumamoudou@ept.sn>)
