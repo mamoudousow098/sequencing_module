@@ -6,6 +6,7 @@
   - [General Info](#general-info)
     - [1.Contextualization of the project](#1contextualization-of-the-project)
     - [2.Presentation of the project](#2presentation-of-the-project)
+      - [2.1 configuration of ftp protocol](#21-configuration-of-ftp-protocol)
     - [Screenshot](#screenshot)
   - [Technologies](#technologies)
   - [Installation](#installation)
@@ -27,6 +28,16 @@ To do this, the project has a few objectives, which are :
 * have a listener to notify if a run is finished.
 * retrieve the metadata and the .fasta file
 * give a description analysis on the trends(pathogen/variant) link with the teranga sample base for more exhaustive data (epidemio, clinical, data)
+
+our project has 3 stages :
+* for the first stage, we have to configure a ftp protocol for the sequencers in the virology lab and trying to automate the sending process when the run is finished
+* next stage: for this stage, we are going to receive and manage files and data received from the virology lab(sequencers) and this step we are going to process and analyze the file with extension fasta
+* the third and last stage: in this step: we develop a platform that can show us the descriptive analysis and manage files and data hosted on the server 
+
+#### 2.1 configuration of ftp protocol
+first of we need to create a user on the machine(sequencers) for the ftp protocol and we use that user to connect on the ftp server and retrieve data from the sequencers provided by the run executed.
+for the configuration we have some tutoriel of [how to create a user on windows machine](https://techozu.com/how-to-create-a-local-account-on-windows-10/) because the sequencers'system is windows platform
+after that we are going to going to setup a software named [xlight ftp server](https://www.xlightftpd.com/download.htm) with enabling on the windows defender the ability to open the 21 port with the the xlight ftp server and allow inbound trafic
 
 
 ### Screenshot
@@ -102,6 +113,7 @@ list of faqs you might need to consult
 * [mysql debug](https://stackoverflow.com/questions/1885101/delete-data-from-all-tables-in-mysql)
 * [deploy app with django](https://vahiwe.medium.com/deploy-django-and-flask-applications-in-the-cloud-using-nginx-gunicorn-and-systemd-centos-7-4b6aef3a8578)
 * [deploy django application](https://dev.to/sayam753/deploy-django-4k0d)
+* [ssh server intalling on windows](https://winscp.net/eng/docs/guide_windows_openssh_server)
 
 ### 2. Contact the developers
 For further information you can directly contact the two developers of the project
