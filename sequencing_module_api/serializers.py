@@ -38,15 +38,20 @@ class FichierSerializer(serializers.ModelSerializer) :
 
 class RunSerializer(serializers.ModelSerializer) :
     class Meta:
-        model = Fichier
+        model = Run
+        fields = "__all__"
+
+class AnalyseSerializer(serializers.ModelSerializer) :
+    class Meta:
+        model = Analyse
         fields = "__all__"
 
 class EchantillonSerializer(serializers.ModelSerializer) :
     class Meta:
-        model = Fichier
+        model = Echantillon
         fields = "__all__"
 
 class DossierZipSerializer(serializers.ModelSerializer) :
     class Meta:
-        model = Fichier 
+        model = DossierZip 
         fields = "__all__"

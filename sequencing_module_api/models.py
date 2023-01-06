@@ -16,10 +16,11 @@ class User(AbstractUser):
     username = None
     groups = None
     user_permissions = None
-    
+
+
     
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = []
+    REQUIRED_FIELDS = [ "password"]
 
     def __str__(self):
         return self.first_name + " " + self.last_name
@@ -60,6 +61,13 @@ class Run(models.Model) :
     class Meta:
         db_table = "run"
 
+class Analyse(models.Model) :
+    id_analyse=models.AutoField(primary_key=True)
+    date_analyse=models.DateField()
+    analysis_name=models.CharField(max_length=255)
+
+    class Meta:
+        db_table = "analyse"
 
 class Echantillon(models.Model) :
     id_echantillon = models.AutoField(primary_key=True) 

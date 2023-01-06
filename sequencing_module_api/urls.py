@@ -24,6 +24,8 @@ urlpatterns  = [
 
     path("dossierzip", views.DossierZipList.as_view()),
     path("dossierzip/<int:pk>", views.DossierZipDetail.as_view()),
-
+    
+    path("analyse", views.AnalyseList.as_view()),
+    path("analyse/<int:pk>", views.AnalyseDetail.as_view()),
 
 ]

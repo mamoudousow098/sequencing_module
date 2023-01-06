@@ -64,7 +64,6 @@ class JSONWebTokenAuth(generics.GenericAPIView):
 
     def get(self, request) :
         token = request.COOKIES.get('token')
-        #token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InVzZXJAZXhhbXBsZS5jb20iLCJpYXQiOjE2NjQzNzE2MDQsIm5iZiI6MTY2NDM3MTMwNCwiZXhwIjoxNjY0OTc2NDA0fQ.dwGz3aSOYcbqCU2CQ4wWNI1V0dTd_z58owu_w76dPck'
         
         auth = JSONWebTokenAuthentication()
         
@@ -85,7 +84,6 @@ class JSONWebTokenAuth(generics.GenericAPIView):
 class OrdinateurList(generics.ListCreateAPIView):
     queryset = Ordinateur.objects.all()
     serializer_class = OrdinateurSerializer
-
 
 
 class OrdinateurDetail(generics.RetrieveUpdateDestroyAPIView):
@@ -109,6 +107,15 @@ class RunList(generics.ListCreateAPIView) :
 class RunDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Fichier.objects.all()
     serializer_class = RunSerializer
+
+
+class AnalyseList(generics.ListCreateAPIView) :
+    queryset = Run.objects.all()
+    serializer_class = AnalyseSerializer
+
+class AnalyseDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Fichier.objects.all()
+    serializer_class = AnalyseSerializer
 
 
 class EchantillonList(generics.ListCreateAPIView) :
