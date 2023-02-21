@@ -1,11 +1,11 @@
 from django.contrib import admin
 from sequencing_module_api.models import *
 
-# Register your models here.
-admin.register(User)
-admin.register(Echantillon)
-admin.register(DossierZip)
-admin.register(Fichier)
-admin.register(Ordinateur)
-admin.register(Run)
+# site.register your models here.
+admin.site.register(User)
+admin.site.register(Echantillon)
+admin.site.register(DossierZip)
+admin.site.register(Fichier)
+admin.site.register(Ordinateur)
+admin.site.register(Run)
 

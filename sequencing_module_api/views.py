@@ -4,6 +4,8 @@ from rest_framework import generics
 from rest_framework import parsers, renderers, status
 from rest_framework.response import Response
 from rest_framework.authtoken.serializers import AuthTokenSerializer
+from django.http import HttpResponse
+import json
 
 from .models import *
 from .serializers import *
@@ -18,6 +20,15 @@ import jwt
 class UserList(generics.ListCreateAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
+
+class SearchUserByName(generics.GenericAPIView) :
+    def get(self, request):
+        pattern = request.GET['user_name']
+        List_User = User.objects.filter(first_name__startswith=pattern)
+        userSerializer = UserSerializer(List_User)
+        return Response(userSerializer.data)
+
+        
 
 
 class UserDetail(generics.RetrieveUpdateDestroyAPIView):
@@ -54,15 +65,24 @@ class JSONWebTokenAuth(generics.GenericAPIView):
                 'nbf': datetime.datetime.utcnow() + datetime.timedelta(minutes=-5),
                 'exp': datetime.datetime.utcnow() + datetime.timedelta(days=1)
             }, settings.SECRET_KEY, algorithm="HS256")
+
+        # data = {
+        #     "token": token
+        # }
+        # response = HttpResponse(json.dumps(data))
+        # response.set_cookie(key='token', value=token, httponly=True)
+
         response = Response()
         response.set_cookie(key='token', value=token, httponly=True)
         response.data = {
             'token' : token
         }
+
         return response
 
 
     def get(self, request) :
+        print('cookies: ', request.COOKIES, sep='\t')
         token = request.COOKIES.get('token')
         
         auth = JSONWebTokenAuthentication()

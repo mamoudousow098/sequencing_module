@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'rest_framework',
     "corsheaders",
     'sequencing_module_api',
+    'sequencing_module_app',
     'drf_yasg',
 ]
 
@@ -75,7 +76,7 @@ ROOT_URLCONF = 'sequencing_module.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -94,26 +95,26 @@ WSGI_APPLICATION = 'sequencing_module.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
-DATABASES = {  
-    'default': {  
-        'ENGINE': env('ENGINE'),  
-        'NAME': env('NAME'),  
-        'USER': env('USER'),  
-        'PASSWORD': env('PASSWORD'),  
-        'HOST': env('HOST'),  
-        'PORT': env('PORT'),  
-        'OPTIONS': {  
-            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"  
-        }  
-    }  
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
 }
+
+# DATABASES = {  
+#     'default': {  
+#         'ENGINE': env('ENGINE'),  
+#         'NAME': env('NAME'),  
+#         'USER': env('USER'),  
+#         'PASSWORD': env('PASSWORD'),  
+#         'HOST': env('HOST'),  
+#         'PORT': env('PORT'),  
+#         'OPTIONS': {  
+#             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"  
+#         }  
+#     }  
+# }
 
 
 # Password validation
@@ -153,6 +154,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
+
+STATICFILES_DIRS = [
+    BASE_DIR / "sequencing_module_app/static",
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field

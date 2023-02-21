@@ -1,5 +1,5 @@
-from . import views
-from django.urls import path
+from django.urls import path, re_path
+from sequencing_module_api import views
 
 
 
@@ -7,6 +7,8 @@ urlpatterns  = [
 
     path("user", views.UserList.as_view()),
     path("user/<int:pk>", views.UserDetail.as_view()),
+
+    path("search/user=<str:user_name>", views.SearchUserByName().as_view()),
 
     path("token", views.JSONWebTokenAuth().as_view()),
 

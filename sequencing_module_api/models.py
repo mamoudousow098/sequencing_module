@@ -13,14 +13,14 @@ class User(AbstractUser):
     email = models.EmailField(max_length=255, null=True, unique=True)
     password = models.CharField(max_length=255, null=True)
     fonction = models.CharField(max_length=255, null=True)
-    username = None
+    username = models.CharField(max_length=255, null=True, unique=True)
     groups = None
     user_permissions = None
 
 
     
-    USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = [ "password"]
+    USERNAME_FIELD = 'username'
+    REQUIRED_FIELDS = [ ]
 
     def __str__(self):
         return self.first_name + " " + self.last_name
@@ -55,6 +55,7 @@ class Fichier(models.Model) :
 
 class Run(models.Model) :
     id_run=models.AutoField(primary_key=True)
+    nom_run=models.CharField(max_length=255)
     date_run=models.DateField()
     status=models.CharField(max_length=100)
 
@@ -64,7 +65,7 @@ class Run(models.Model) :
 class Analyse(models.Model) :
     id_analyse=models.AutoField(primary_key=True)
     date_analyse=models.DateField()
-    analysis_name=models.CharField(max_length=255)
+    name_analysis=models.CharField(max_length=255)
 
     class Meta:
         db_table = "analyse"
