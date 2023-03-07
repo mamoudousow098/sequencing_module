@@ -55,6 +55,7 @@ class Fichier(models.Model) :
 
 class Run(models.Model) :
     id_run=models.AutoField(primary_key=True)
+    nom_run=models.CharField(max_length=255)
     date_run=models.DateField()
     status=models.CharField(max_length=100)
 
@@ -64,7 +65,7 @@ class Run(models.Model) :
 class Analyse(models.Model) :
     id_analyse=models.AutoField(primary_key=True)
     date_analyse=models.DateField()
-    analysis_name=models.CharField(max_length=255)
+    name_analysis=models.CharField(max_length=255)
 
     class Meta:
         db_table = "analyse"
