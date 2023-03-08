@@ -1,5 +1,5 @@
-from . import views
 from django.urls import path, re_path
+from sequencing_module_api import views
 
 
 

@@ -1,2 +1,3 @@
 sequencing_module_api/migrations/*
 .env
+sequencing_module_app/templates/arion_html/*

@@ -13,14 +13,14 @@ class User(AbstractUser):
     email = models.EmailField(max_length=255, null=True, unique=True)
     password = models.CharField(max_length=255, null=True)
     fonction = models.CharField(max_length=255, null=True)
-    username = None
+    username = models.CharField(max_length=255, null=True, unique=True)
     groups = None
     user_permissions = None
 
 
     
-    USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = [ "password"]
+    USERNAME_FIELD = 'username'
+    REQUIRED_FIELDS = [ ]
 
     def __str__(self):
         return self.first_name + " " + self.last_name

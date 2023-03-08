@@ -3,5 +3,4 @@ djangorestframework
 django-cors-headers
 drf-yasg
 PyJWT
-mysqlclient
 django-environ

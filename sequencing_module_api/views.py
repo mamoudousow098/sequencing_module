@@ -66,17 +66,23 @@ class JSONWebTokenAuth(generics.GenericAPIView):
                 'exp': datetime.datetime.utcnow() + datetime.timedelta(days=1)
             }, settings.SECRET_KEY, algorithm="HS256")
 
-        data = {
-            "token": token
-        }
-        response = HttpResponse(json.dumps(data))
+        # data = {
+        #     "token": token
+        # }
+        # response = HttpResponse(json.dumps(data))
+        # response.set_cookie(key='token', value=token, httponly=True)
+
+        response = Response()
         response.set_cookie(key='token', value=token, httponly=True)
+        response.data = {
+            'token' : token
+        }
 
         return response
 
 
     def get(self, request) :
-        print(request.COOKIES)
+        print('cookies: ', request.COOKIES, sep='\t')
         token = request.COOKIES.get('token')
         
         auth = JSONWebTokenAuthentication()
