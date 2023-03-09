@@ -8,5 +8,7 @@ urlpatterns = [
 
     path("", views.login_view),
 
+    path("file", views.file_view),
+
     path("test", views.test_view)
 ]

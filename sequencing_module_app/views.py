@@ -40,6 +40,9 @@ def login_view(request, *args, **kwargs):
     #     return redirect('/home')
     return render(request, 'login.html')
 
+def file_view(request, *args, **kwargs) :
+    return render(request, 'fileManager.html')
+
 
 
 def test_view(request, *args, **kwargs):
