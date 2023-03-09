@@ -24,11 +24,12 @@ def home_view(request, *args, **kwargs):
     response = requests.get(BASE_URL + 'api/token', headers= request.headers)
     print(response.json())
 
-    if response.status_code == 200 :
-        user = response.json()['data']
-        return render(request, 'home.html', { 'user': user})
-    else : 
-        return redirect('/')
+    # if response.status_code == 200 :
+    #     user = response.json()['data']
+    #     return render(request, 'home.html', { 'user': user})
+    # else : 
+    #     return redirect('/')
+    return render(request, 'home.html')
 
 
 

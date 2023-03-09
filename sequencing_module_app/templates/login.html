@@ -31,10 +31,10 @@
     <link rel="apple-touch-icon" sizes="152x152" href="{% static 'img/content/favicons/apple-icon-152x152.png' %}" />
     <link rel="apple-touch-icon" sizes="180x180" href="{% static 'img/content/favicons/apple-icon-180x180.png' %}" />
     <link rel="icon" type="image/png" sizes="192x192"
-        href="{% static 'img/content/favicons/android-icon-192x192.png' %}" />
-    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/content/favicons/favicon-32x32.png' %}" />
-    <link rel="icon" type="image/png" sizes="96x96" href="{% static 'img/content/favicons/favicon-96x96.png' %}" />
-    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'img/content/favicons/favicon-16x16.png' %}" />
+        href="{% static 'img/content/logo.png' %}" />
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/content/logo.png' %}" />
+    <link rel="icon" type="image/png" sizes="96x96" href="{% static 'img/content/logo.png' %}" />
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'img/content/logo.png' %}" />
     <!-- <link rel="manifest" href="{% static 'img/content/favicons/manifest.js' %}on" />-->
     <meta name="msapplication-TileColor" content="#ffffff" />
     <meta name="msapplication-TileImage" content="../../ms-icon-144x144.html" />
@@ -646,7 +646,7 @@
                         <div class="auth-card__left">
                             <div class="auth-card__logo">
                                 <div class="auth-logo">
-                                    <img class="auth-logo__icon" src="{% static 'img/content/logotype.svg' %}" width="44" alt="#" />
+                                    <img class="auth-logo__icon" src="{% static 'img/content/logo.png' %}" width="44" alt="#" />
                                     <div class="auth-logo__text">Sequencing Module</div>
                                 </div>
                             </div>
@@ -738,12 +738,13 @@
             $.post( url, { email: email, password: password })
             .done(function( data ) {
                 console.log('success')
+                document.location.href = '/home'
             });
 
-            $.get(url)
-            .done(function(data) {
-                console.log('fetching token ')
-            })
+            // $.get(url)
+            // .done(function(data) {
+            //     console.log('fetching token ')
+            // })
 
         
         })
