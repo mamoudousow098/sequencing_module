@@ -21,12 +21,12 @@ class UserList(generics.ListCreateAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
 
-class SearchUserByName(generics.GenericAPIView) :
-    def get(self, request):
-        pattern = request.GET['user_name']
-        List_User = User.objects.filter(first_name__startswith=pattern)
-        userSerializer = UserSerializer(List_User)
-        return Response(userSerializer.data)
+# class SearchUserByName(generics.GenericAPIView) :
+#     def get(self, request):
+#         pattern = request.GET['user_name']
+#         List_User = User.objects.filter(first_name__startswith=pattern)
+#         userSerializer = UserSerializer(List_User)
+#         return Response(userSerializer.data)
 
         
 
@@ -124,17 +124,19 @@ class RunList(generics.ListCreateAPIView) :
     queryset = Run.objects.all()
     serializer_class = RunSerializer
 
+
+
 class RunDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Fichier.objects.all()
+    queryset = Run.objects.all()
     serializer_class = RunSerializer
 
 
 class AnalyseList(generics.ListCreateAPIView) :
-    queryset = Run.objects.all()
+    queryset = Analyse.objects.all()
     serializer_class = AnalyseSerializer
 
 class AnalyseDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Fichier.objects.all()
+    queryset = Analyse.objects.all()
     serializer_class = AnalyseSerializer
 
 
@@ -143,7 +145,7 @@ class EchantillonList(generics.ListCreateAPIView) :
     serializer_class = EchantillonSerializer
 
 class EchantillonDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Fichier.objects.all()
+    queryset = Echantillon.objects.all()
     serializer_class = EchantillonSerializer
 
 class DossierZipList(generics.ListCreateAPIView) :

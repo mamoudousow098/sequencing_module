@@ -8,7 +8,7 @@ urlpatterns  = [
     path("user", views.UserList.as_view()),
     path("user/<int:pk>", views.UserDetail.as_view()),
 
-    path("search/user=<str:user_name>", views.SearchUserByName().as_view()),
+    #path("search/user=<str:user_name>", views.SearchUserByName().as_view()),
 
     path("token", views.JSONWebTokenAuth().as_view()),
 
@@ -17,6 +17,7 @@ urlpatterns  = [
     
     path("run", views.RunList.as_view()),
     path("run/<int:pk>", views.RunDetail.as_view()),
+
     
     path("fichier", views.FichierList.as_view()),
     path("fichier/<int:pk>", views.FichierDetail.as_view()),
