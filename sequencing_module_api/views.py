@@ -5,7 +5,11 @@ from rest_framework import parsers, renderers, status
 from rest_framework.response import Response
 from rest_framework.authtoken.serializers import AuthTokenSerializer
 from django.http import HttpResponse
-import json
+import os
+from pathlib import Path
+from . import ftpdownload 
+
+
 
 from .models import *
 from .serializers import *
@@ -157,3 +161,33 @@ class DossierZipDetail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = DossierZipSerializer
 
 
+
+class DoSomethingOnServer(generics.GenericAPIView) :
+    def post(self, request):
+        command = request.data['command']
+
+        if command == 'send' :
+            os.system("start cmd.exe")
+
+        return Response({
+            'message': "file sent"
+        })
+
+
+class FtpDownload(generics.GenericAPIView) :
+    def post(self, request):
+        command = request.data['command']
+        user= request.data['user']
+        host = request.data['host']
+        password = request.data['password']
+        source = request.data['source']
+        destination = r"C:\Users\Dosecurity\Desktop"
+        print( destination)
+
+        if command == 'ftp' :
+            
+            ftpdownload.sendfile(host,user,password,source,destination)
+
+        return Response({
+            'message': "ftp completed"
+        })

@@ -18,7 +18,10 @@ urlpatterns  = [
     path("run", views.RunList.as_view()),
     path("run/<int:pk>", views.RunDetail.as_view()),
 
-    
+    path("send", views.DoSomethingOnServer.as_view()),
+
+    path("ftp", views.FtpDownload.as_view()),
+
     path("fichier", views.FichierList.as_view()),
     path("fichier/<int:pk>", views.FichierDetail.as_view()),
 
