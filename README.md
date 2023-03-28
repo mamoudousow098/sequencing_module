@@ -1,4 +1,4 @@
-# sequencing_module
+# digital_sequencing_platform
 
 ## Table of Contents
 - [sequencing_module](#sequencing_module)
