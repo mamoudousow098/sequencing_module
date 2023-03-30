@@ -2,7 +2,6 @@ import jwt
 
 from django.conf import settings
 from .models import User
-from .serializers import UserSerializer
 
 from rest_framework import exceptions
 from rest_framework.authentication import TokenAuthentication

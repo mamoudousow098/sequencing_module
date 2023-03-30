@@ -12,11 +12,14 @@ urlpatterns  = [
 
     path("token", views.JSONWebTokenAuth().as_view()),
 
-    path("ordinateur", views.OrdinateurList.as_view()),
-    path("ordinateur/<str:pk>", views.OrdinateurDetail.as_view()),
+    path("sequenceur", views.SequenceurList.as_view()),
+    path("sequenceur/<str:pk>", views.SequenceurDetail.as_view()),
     
     path("run", views.RunList.as_view()),
     path("run/<int:pk>", views.RunDetail.as_view()),
+
+    path("folder", views.FolderList.as_view()),
+    path("folder/<int:pk>", views.FolderDetail.as_view()),
 
     path("send", views.DoSomethingOnServer.as_view()),
 

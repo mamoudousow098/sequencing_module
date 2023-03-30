@@ -6,6 +6,6 @@ admin.site.register(User)
 admin.site.register(Echantillon)
 admin.site.register(DossierZip)
 admin.site.register(Fichier)
-admin.site.register(Ordinateur)
+admin.site.register(Sequenceur)
 admin.site.register(Run)
 

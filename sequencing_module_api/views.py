@@ -105,14 +105,14 @@ class JSONWebTokenAuth(generics.GenericAPIView):
         
        
 
-class OrdinateurList(generics.ListCreateAPIView):
-    queryset = Ordinateur.objects.all()
-    serializer_class = OrdinateurSerializer
+class SequenceurList(generics.ListCreateAPIView):
+    queryset = Sequenceur.objects.all()
+    serializer_class = SequenceurSerializer
 
 
-class OrdinateurDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Ordinateur.objects.all()
-    serializer_class = OrdinateurSerializer
+class SequenceurDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Sequenceur.objects.all()
+    serializer_class = SequenceurSerializer
 
 class FichierList(generics.ListCreateAPIView):
     queryset = Fichier.objects.all()
@@ -152,6 +152,16 @@ class EchantillonDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Echantillon.objects.all()
     serializer_class = EchantillonSerializer
 
+class FolderList(generics.ListCreateAPIView):
+    queryset = Folder.objects.all()
+    serializer_class = FolderSerializer
+
+class FolderDetail(generics.RetrieveUpdateDestroyAPIView) :
+    queryset = Folder.objects.all()
+    serializer_class = FolderSerializer
+
+
+
 class DossierZipList(generics.ListCreateAPIView) :
     queryset = DossierZip.objects.all()
     serializer_class = DossierZipSerializer
@@ -163,7 +173,10 @@ class DossierZipDetail(generics.RetrieveUpdateDestroyAPIView):
 
 
 class DoSomethingOnServer(generics.GenericAPIView) :
+
+    
     def post(self, request):
+        
         command = request.data['command']
 
         if command == 'send' :

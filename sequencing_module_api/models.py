@@ -1,5 +1,5 @@
-import email
-from ipaddress import ip_address
+
+import datetime
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 
@@ -13,14 +13,12 @@ class User(AbstractUser):
     email = models.EmailField(max_length=255, null=True, unique=True)
     password = models.CharField(max_length=255, null=True)
     fonction = models.CharField(max_length=255, null=True)
-    username = models.CharField(max_length=255, null=True, unique=True)
     groups = None
     user_permissions = None
-
+    
 
     
-    USERNAME_FIELD = 'username'
-    REQUIRED_FIELDS = [ ]
+    REQUIRED_FIELDS = ['email']
 
     def __str__(self):
         return self.first_name + " " + self.last_name
@@ -30,7 +28,7 @@ class User(AbstractUser):
 
 
 
-class Ordinateur(models.Model) :
+class Sequenceur(models.Model) :
     hostname=models.CharField(max_length=255, primary_key=True)
     ip_address=models.CharField(max_length=100)
     machine_user=models.CharField(max_length=100)
@@ -41,6 +39,26 @@ class Ordinateur(models.Model) :
     class Meta :
         db_table = "ordinateur"
 
+class Run(models.Model) :
+    id_run = models.AutoField(primary_key=True)
+    nom_run = models.CharField(max_length=255)
+    date_run = models.DateField(auto_now_add=True)
+    status = models.CharField(max_length=100)
+    machine = models.ForeignKey(Sequenceur, related_name="runs", on_delete=models.CASCADE, blank=True)
+
+    class Meta:
+        db_table = "run"
+
+class Folder(models.Model) :
+    id_folder = models.AutoField(primary_key=True)
+    folderName = models.CharField(max_length=255)
+    location = models.CharField(max_length=255)
+    taille = models.BigIntegerField(blank=True, null=True)
+    parent = models.ForeignKey('self', null=True, related_name='children', on_delete=models.CASCADE)
+    
+
+    class Meta:
+        db_table = 'folder'
 
 class Fichier(models.Model) :
     id_fichier = models.AutoField(primary_key=True)
@@ -48,19 +66,13 @@ class Fichier(models.Model) :
     nom=models.CharField(max_length=255)
     date_creation=models.DateTimeField(auto_now_add=True)
     destinataire=models.IntegerField(null=True )
+    run = models.ForeignKey(Run, related_name='run_fichiers', on_delete=models.CASCADE, blank=True, null=True)
+    dossier = models.ForeignKey(Folder, related_name='fichiers', on_delete=models.CASCADE, blank=True, null=True)
 
     class Meta :
         db_table = "fichier"
 
 
-class Run(models.Model) :
-    id_run=models.AutoField(primary_key=True)
-    nom_run=models.CharField(max_length=255)
-    date_run=models.DateField()
-    status=models.CharField(max_length=100)
-
-    class Meta:
-        db_table = "run"
 
 class Analyse(models.Model) :
     id_analyse=models.AutoField(primary_key=True)
@@ -72,12 +84,15 @@ class Analyse(models.Model) :
 
 class Echantillon(models.Model) :
     id_echantillon = models.AutoField(primary_key=True) 
+    libelle= models.CharField(max_length=255)
     date_echantillon = models.DateField()
     pays_origine = models.CharField(null=True, max_length=100)
     description = models.TextField()
+    run = models.ForeignKey(Run, related_name='echantillons', on_delete=models.CASCADE, blank=True, null=True)
 
     class Meta:
         db_table = "echantillon"
+
 
 class DossierZip(models.Model):
     id_zip = models.AutoField(primary_key=True)
